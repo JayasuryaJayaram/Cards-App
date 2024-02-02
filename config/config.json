@@ -1,0 +1,18 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "cards-app-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/cardsApp/CardsAppWebPart.js",
+          "manifest": "./src/webparts/cardsApp/CardsAppWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "CardsAppWebPartStrings": "lib/webparts/cardsApp/loc/{locale}.js"
+  }
+}
