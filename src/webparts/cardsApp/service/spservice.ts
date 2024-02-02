@@ -1,4 +1,5 @@
 import { addSP } from "./PnPjsConfig";
+import "@pnp/sp/profiles";
 
 export const addData = async (values: any) => {
   try {
@@ -29,6 +30,18 @@ export const getMail = async () => {
     return items;
   } catch (error) {
     console.error("Error getting mail_id:", error);
+    throw error;
+  }
+};
+
+export const getUserData = async () => {
+  try {
+    const sp = addSP();
+
+    const details = await sp.profiles.myProperties();
+    return details;
+  } catch (error) {
+    console.error("Error getting user info:", error);
     throw error;
   }
 };

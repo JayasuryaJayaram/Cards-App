@@ -6,6 +6,7 @@ import "@pnp/sp/lists";
 import "@pnp/sp/items";
 import "@pnp/sp/items/get-all";
 import "@pnp/sp/batching";
+import "@pnp/sp/profiles";
 
 var _sp: SPFI | null = null;
 

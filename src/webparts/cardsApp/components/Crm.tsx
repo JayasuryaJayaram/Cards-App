@@ -3,10 +3,12 @@ import styles from "./Crm.module.scss";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Popover from "react-bootstrap/Popover";
 import { useState } from "react";
-import { addData, getMail } from "../service/spservice"; //getMail
+import { addData, getMail, getUserData } from "../service/spservice"; //getMail
 import { ICardsAppProps } from "./ICardsAppProps";
 import { Form, Input, Button, Modal } from "antd";
-import { Approvalmail } from "../RequestMail/mailTrigger";
+import { Requestmail } from "../RequestMail/mailTrigger";
+// import { MSGraphClientV3 } from "@microsoft/sp-http";
+// import * as MicrosoftGraph from "@microsoft/microsoft-graph-types";
 
 const Crm = (props: ICardsAppProps) => {
   const [form] = Form.useForm();
@@ -18,10 +20,15 @@ const Crm = (props: ICardsAppProps) => {
       setIsModalVisible(true);
 
       let data = await getMail();
+      let userData = await getUserData();
+
+      console.log("User Data", userData);
 
       let senderMail = data[0].mail_id;
+      let userName = userData.DisplayName;
+      let userMail = userData.Email;
 
-      await Approvalmail(values, senderMail); // Pass sender's email and form values
+      await Requestmail(values, senderMail, userName, userMail);
       console.log("Email sent to", senderMail);
 
       form.resetFields();
