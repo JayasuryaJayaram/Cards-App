@@ -39,11 +39,11 @@
 
 .cards {
   width: 100%;
-  margin-top: 35px;
+  margin-top: 41px;
 }
 
 .row {
-  margin-top: 10px;
+  margin-bottom: 31px;
 }
 
 .card {
@@ -102,4 +102,29 @@
 .btn:hover {
   box-shadow: 1px 1px 4px 0px #c9c9c9;
   background-color: #283657;
+}
+
+@media (max-width: 1280px) and (min-width: 769px) {
+  .cards {
+    width: 100%;
+    margin-top: 41px;
+  }
+
+  .card {
+    height: 169px;
+  }
+
+  .row {
+    margin-bottom: 20px;
+  }
+}
+@media screen and (max-width: 769px) {
+  .cards {
+    width: 89%;
+    margin: auto;
+  }
+
+  .card {
+    height: 169px;
+  }
 }
